@@ -1,0 +1,208 @@
+@layer layout, style;
+
+@font-face {
+  font-family: "Geist";
+  src: url("./Geist/Geist-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("./Geist/Geist-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("./Geist/Geist-Light.woff2") format("woff2");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+ /* url("./Geist/Geist-SemiBold.woff2") format("woff2"),
+      url( "./Geist/Geist-Thin.woff2") format("woff2"),
+       url("./Geist/Geist-UltraBlack.woff2") format("woff2"),
+       url("./Geist/Geist-UltraLight.woff2") format("woff2"),
+       url("./Geist/Geist-GeistVF.woff2") format("woff2"),
+       url("./Geist/Geist-Black.woff2") format("woff2"),
+       ,
+       ,
+       url("./Geist/Geist-Medium.woff2") format("woff2"), */
+
+@layer layout {
+
+  #grid-container {
+    display: grid;
+    grid-template-columns: [first] 3fr [gap-start] 2rem [gap-end] 9fr [third];
+    grid-template-rows: [first] 200px [second] 10fr [third];
+  }
+  
+  #cv-header {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid; 
+    grid-column-start: first;
+    grid-column-end: third;
+    grid-row-start: first;
+    grid-row-end: second;
+
+    #profile-image-container {
+      grid-column-start: first;
+      grid-column-end: gap-start;
+      grid-row-start: first;
+      grid-row-end: second;
+    };
+  
+    #header-info-container {
+      grid-column-start: gap-end;
+      grid-column-end: third;
+      grid-row-start: first;
+      grid-row-end: second;
+    };
+  }
+  
+  #general-info-sidepane {
+    grid-column-start: first;
+    grid-column-end: gap-start;
+    grid-row-start: second;
+    grid-row-end: third;
+  }
+  
+  #experience-pane {
+    grid-column-start: gap-end;
+    grid-column-end: third;
+    grid-row-start: second;
+    grid-row-end: third;
+  }
+
+  #socials {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    direction: rtl;
+    padding: 1rem 0.5rem 1rem 1rem;
+    z-index: 10;
+  }
+}
+
+@layer style {
+  :root {
+    --primary-color: lightblue;
+    --secondary-color: #e66465;
+  }
+  body {
+    font-family: "Geist";
+    /* margin: 1cm; */
+    margin: 0;
+    padding: 0.5rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      z-index: -1;
+      border-radius: 60% 75% 50% 80%;
+      background: linear-gradient(120deg, var(--primary-color) 25%, var(--secondary-color) 100%);
+      bottom: -400px;
+      right: -400px;
+    }
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  .subheading {
+    font-size: 1.5rem;
+  }
+
+  a {
+    color: black;
+    &:active, &:hover {
+      color: blue;
+    }
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+  }
+
+  /* .contact-item {
+    display: flex;
+    gap: 0.2rem;
+  } */
+
+
+   /* background-color: #ffffff; 
+    background-image: url("/assets/blob.svg"); */
+      /* background-attachment: fixed; */
+      /*
+      background-size: cover;
+      background-repeat: no-repeat;
+    */
+  #profile-image-container {
+    overflow: hidden;
+    & img {
+      width: 250px;
+      height: 250px;
+      object-fit: contain;
+      border-radius: 100%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 0 75% 50% 25%;
+      background: linear-gradient(var(--secondary-color), var(--primary-color));
+      top: -100px;
+      left: -50px;
+    }
+
+  }
+
+  .article-header {
+    padding-left: 2rem;
+    & .header-icon {
+      position: relative;
+      right: 2rem;
+    }
+  }
+
+  #general-info-sidepane {
+    /* background-color: white; */
+    /* padding-top: 2rem; */
+  }
+  
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  #socials {
+    background-color: var(--primary-color);
+  }
+
+  .topic {
+    background-color: var(--primary-color);
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.2rem;
+  }
+}
+
+
+
+@page {
+  size: A4 portrait;
+  margin: 1cm;
+}
