@@ -9,6 +9,9 @@
 </head>
 <body>
   <div id="grid-container">
+    <div id="style-overlay" aria-hidden="true">
+      <div id="style-overlay-profile"></div>
+    </div> 
     <header id="cv-header">
       <div id="profile-image-container">
         <img src="./assets/profile-picture.jpg" alt="profile-image-bjorn-van-braak"/>
@@ -18,9 +21,9 @@
         <p class="subheading">Web developer</p>
       </div>
       <div id="socials">
-        <a href="https://www.linkedin.com/in/bjorn-van-braak/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
-        <a href="https://github.com/BjornvanBraak" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
-        <a href="#" target="_blank"><i class="fa-solid fa-globe fa-2xl"></i></a>
+        <a href="https://www.linkedin.com/in/bjorn-van-braak/" target="_blank" aria-label="linkedin page"><i class="fa-brands fa-linkedin fa-2xl"></i><span>LinkedIn</span></a>
+        <a href="https://github.com/BjornvanBraak" target="_blank" aria-label="github page"><i class="fa-brands fa-github fa-2xl"></i><span>GitHub</span></a>
+        <a href="#" target="_blank" aria-label="portfolio website home"><i class="fa-solid fa-globe fa-2xl"></i><span>My Website</span></a>
       </div>
     </header>
     <main id="experience-pane">
@@ -160,6 +163,5 @@
       </article>
     </footer>
   </div>
-  
 </body>
 </html>
